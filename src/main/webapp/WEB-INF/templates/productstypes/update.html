@@ -9,7 +9,7 @@
 <h5>Ввод нового типа продукта</h5>
 <hr>
 
-<form th:method="post" th:action="@{/productstypes/admin/update}">
+<form th:method="post" th:action="@{/catalog/admin/update}">
     <input type="hidden" th:field="*{productType.id}">
     <label for="typeName">Тип продукта:</label>
     <input type="text" th:field="${productType.typeName}" id="typeName" placeholder="Тип продукта"/>

@@ -5,16 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>by.tms</groupId>
-    <artifactId>onliner-clone-tms-c30-onl</artifactId>
+    <artifactId>onliner-clone-tms-c30</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>onliner-clone-tms-c30-onl Maven Webapp</name>
+    <name>onliner-clone-tms-c30 Maven Webapp</name>
     <url>https://maven.apache.org</url>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -84,7 +84,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>onliner-clone-tms-c30-onl</finalName>
+        <finalName>onliner-clone-tms-c30</finalName>
     </build>
 
 </project>
