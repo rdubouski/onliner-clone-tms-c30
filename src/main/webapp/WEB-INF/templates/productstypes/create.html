@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="">
+<head>
+    <meta charset="UTF-8">
+    <title>NewProductType</title>
+</head>
+<body>
+<div th:insert="menubar.html"></div>
+<h5>Ввод нового типа продукта</h5>
+<hr>
+
+<form th:method="POST" th:action="@{/productstypes/admin/create}">
+    <label for="typeName">Тип продукта:</label>
+    <input type="text" th:field="${productType.typeName}" id="typeName"/>
+    <br/>
+    <label for="photo">Ссылка на фото продукта:</label>
+    <input type="text" th:field="${productType.photo}" id="photo"/>
+    <br/>
+    <input type="submit" value="Создать"/>
+</form>
+
+</body>
+</html>

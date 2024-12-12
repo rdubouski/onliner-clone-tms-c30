@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="">
+<head>
+    <meta charset="UTF-8">
+    <title>ProductsTypes</title>
+
+</head>
+<body>
+<div th:insert="menubar"></div>
+<h5>Каталог</h5>
+<hr>
+<div th:each="productType : ${productsTypes}">
+    <ul class="pagination">
+        <img th:src="${productType.getPhoto()}" class="w-40" height="120" alt="...">
+        <a th:href="@{/catalog/product(id=${productType.getId()})}" th:text="${productType.getTypeName()}">value</a>
+    </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>orderForm</title>
+</head>
+<body>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" />
+
+<style>
+    .container {
+        max-width: 500px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        margin: 10px 0 5px;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #218838;
+    }
+</style>
+<div th:insert="menubar.html"></div>
+<title>Форма Оформления Заказа</title>
+<link rel="stylesheet" href="styles.css">
+<div class="container">
+    <h2>Оформление заказа</h2>
+    <form th:object="${order}" th:action="@{/order}" method="post">
+        <input type="hidden" th:field="*{orderId}" />
+        <input type="hidden" th:field="*{customerId}" name="customerId"/>
+        <input type="hidden" th:field="*{shopProductId}" name="shopProductId"/>
+        <input type="hidden" th:field="*{totalPrice}" name="totalPrice"/>
+        <input type="hidden" th:field="*{shopName}" name="shopName"/>
+        <input type="hidden" th:field="*{shopDelivery}" name="shopDelivery"/>
+        <div class="card" style="width: 18rem;">
+            <div>
+                <img th:src="*{photo}" width="150" height="150" class="w-100" alt="...">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title" th:text="*{productName}"></h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" th:text="'цена: ' + *{totalPrice + ' byn'}"></li>
+                <li class="list-group-item" th:text="'магазин: ' + *{shopName}"></li>
+                <li class="list-group-item" th:text="'доставка: ' + *{shopDelivery}"></li>
+            </ul>
+        </div>
+        <label for="name">Имя*:</label>
+        <input type="text" id="name" th:field="*{firstName}" name="name" required>
+        <label for="lastname">Фамилия*:</label>
+        <input type="text" id="lastname" th:field="*{lastName}" name="lastname" required>
+        <label for="phone">Телефон*:</label>
+        <input type="tel" id="phone" th:field="*{phone}" name="phone" required>
+        <label for="address">Адрес доставки*:</label>
+        <input type="text" id="address" th:field="*{deliveryAddress}" name="address" required>
+        <label for="message">Дополнительная информация</label>
+        <input type="message" id="message" name="message">
+        <button type="submit">Оформить заказ</button>
+    </form>
+</div>
+</body>
+</html>
